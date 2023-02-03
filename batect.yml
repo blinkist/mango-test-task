@@ -1,0 +1,69 @@
+containers:
+  app:
+    build_directory: .
+    build_target: dev
+    volumes:
+      - local: .
+        container: /app
+      - type: cache
+        name: bundle
+        container: /usr/local/bundle
+      - type: cache
+        name: history
+        container: /root
+      - type: tmpfs
+        container: /app/tmp
+  db:
+    image: postgres:13.3-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - type: cache
+        name: postgres
+        container: /var/lib/postgresql/data
+
+tasks:
+  setup:
+    description: Setup project.
+    group: Setup tasks
+    prerequisites:
+      - bundle
+      - db:setup
+
+  bundle:
+    description: Install ruby dependencies.
+    group: Setup tasks
+    run:
+      container: app
+      command: bundle install
+
+  db:setup:
+    description: Setup database
+    group: Setup tasks
+    dependencies:
+      - db
+    run:
+      container: app
+      command: rails db:create db:migrate db:seed
+
+  shell:
+    description: Start a shell in the development environment.
+    group: Development tasks
+    dependencies:
+      - db
+    run:
+      container: app
+      ports:
+        - 3000:3000
+      command: bash
+
+  server:
+    description: Start rails server.
+    group: Development tasks
+    dependencies:
+      - db
+    run:
+      container: app
+      ports:
+        - 3000:3000
+      command: rails s -b 0.0.0.0
