@@ -10,7 +10,7 @@ It has the following requirements:
 - It has metrics and logging enabled to help developers and stake holders understand usage and troubleshoot any issues.
 
 
-We would like you to prepare a small one page document with your recommendations and any open questions you may have.
+We would like you to prepare an actionable document with your recommendations and any open questions you may have.
 
 The document should cover the following topics:
 
