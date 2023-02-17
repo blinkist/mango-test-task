@@ -76,7 +76,7 @@ curl -u "user@blinkist:password" -H 'Content-Type: application/json' \
 curl -u "anonymous@blinkist:password" http://localhost:3000/api/posts/5100
 ```
 
-#### Show debug post (posts that should to be hidden and normally we should not have requests to them)
+#### Try request a post that is blocked
 
 ```
 curl -u "anonymous@blinkist:password" http://localhost:3000/api/posts/900
