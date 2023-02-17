@@ -2,13 +2,23 @@
 
 To get a better understanding of your work and thinking process, we’ve put together a problem we’d like you to solve.
 
-We would like you to act as the SRE in helping the development team and prepare a small one page document explaining your recommendations and any other questions you’d have to the development team on getting the application prepared for production.
+We would like you to act as the SRE in helping the development team prepare the application to run in a production environment.
+
+It has the following requirements:
+- It is accessed by mobile applications around the world
+- It recieves roughly 1000 requests a minute
+- It has metrics and logging enabled to help developers and stake holders understand usage and troubleshoot any issues.
+
+
+We would like you to prepare a small one page document with your recommendations and any open questions you may have.
 
 The document should cover the following topics:
 
-1. What is required for the application to be production ready?
-2. Is there anything else to make local development easier?
-2. What else would you change?
+1. What changes are required for the application to be acceptable to run in a production environment? What recommendations for the developers would you have to fulfil these requirements above?
+2. Are there any example code changes you'd make to help with any recommendations? (Only provide a snippet if you think it would help developers understand your recommendation, don't rewrite the application)
+3. Is there anything else you would change?
+
+You can ignore some aspects of how the application is set up. Ignore how authentication works, how it is deployed in CI to AWS as well as database management.
 
 The document will be used in the next stage of the interview process. We would have an open discussion lasting 30 minutes to discuss your recommendations. We’d ask questions about the recommendations, how you might implement any changes, and also discuss any past experiences you’ve had making improvements.
 
@@ -16,11 +26,12 @@ The document will be used in the next stage of the interview process. We would h
 
 Imagine that the application is currently running in a development environment.
 
-Our production setup looks like this:
+Our production stack looks like this and imagine that everything is already set up:
 
 1. We currently run on AWS ECS Fargate, proxied via an Application Load Balancer and Cloudflare as the CDN. 
 2. We use Terraform (with Atlantis) to manage our infrastructure.
 3. Fluentbit processes the application's logs and forward them to DataDog.
+4. It is deployed via a CircleCI pipeline.
 
 ## Application description
 
