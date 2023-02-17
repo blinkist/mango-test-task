@@ -44,7 +44,7 @@ All endpoints require basic authorisation and credentials are user's email and p
 The seeds will prepare posts and create 2 users
 
 1. Normal user: user@blinkist, password `password`
-2. Anonymous user (a user that deleted their account and we deanonymised their email): anonymous@blinkist, password: `password`
+2. Anonymous user (in the app, we have a randomly generated "anonymous user" to interact with some parts of the API): anonymous@blinkist, password: `password`
 
 ## Examples of requests
 
