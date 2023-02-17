@@ -37,9 +37,8 @@ All endpoints require basic authorisation and credentials are user's email and p
 ## Setup instructions
 
 1. Run `./batect setup` to install gems and run database migrations.
-2. Run `./batect db:setup` to create and seed the database.
-3. Run `./batect server` to start Rails server.
-4. Run `./batect shell` to run shell.
+2. Run `./batect server` to start Rails server.
+3. Run `./batect shell` to run shell.
 
 The seeds will prepare posts and create 2 users
 
